@@ -63,7 +63,7 @@ last 5 minutes).
 
 **PromQL Query:**
 
-sum by (le) (rate(egym_workout_duration_seconds_bucket{workout_type=~"$workout_type"}[5m]))
+`sum by (le) (rate(egym_workout_duration_seconds_bucket{workout_type=~"$workout_type"}[5m]))`
 
 
 # Machine & System Health Dashboard
@@ -95,9 +95,11 @@ sum by (le) (rate(egym_workout_duration_seconds_bucket{workout_type=~"$workout_t
 
 **PromQL Query:**
 
-`sum(rate(egym_api_latency_seconds_sum{endpoint=~"$endpoint"}[5m])) by (endpoint)`
-`/`
-`sum(rate(egym_api_latency_seconds_count{endpoint=~"$endpoint"}[5m])) by (endpoint)`
+```
+sum(rate(egym_api_latency_seconds_sum{endpoint=~"$endpoint"}[5m])) by (endpoint)`
+/
+sum(rate(egym_api_latency_seconds_count{endpoint=~"$endpoint"}[5m])) by (endpoint)
+```
 
 ---
 **Name: Application Errors**
