@@ -1,0 +1,18 @@
+# prometheus.yml
+
+global:
+  scrape_interval: 15s # Scrape targets every 15 seconds.
+
+scrape_configs:
+  # A job to scrape Prometheus itself.
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # The job for our C++ application.
+  - job_name: 'egym-machine-app'
+    # Scrape every 5 seconds to see changes faster.
+    scrape_interval: 5s
+    static_configs:
+      # Use the new port: 8081
+      - targets: ['host.docker.internal:8081']
